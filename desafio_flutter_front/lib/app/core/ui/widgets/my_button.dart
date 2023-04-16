@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reserva_churas/app/core/ui/styles/colors_app.dart';
 
 class MyButton extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -24,7 +25,14 @@ class MyButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: color),
         onPressed: onPressed,
-        child: Text(label),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: context.colorsApp.background,
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+          ),
+        ),
       ),
     );
   }

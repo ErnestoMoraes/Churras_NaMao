@@ -13,6 +13,7 @@ class ColorsApp {
   Color get primary => const Color(0xFF0E21CB);
   Color get secondary => const Color(0xFF312F2F);
   Color get background => const Color(0xFF1E1E1E);
+  Color get daynoselected => const Color(0xFF585858);
   Color get blue => const Color(0xFF39B7FE);
   Color get white => Colors.white;
 }
