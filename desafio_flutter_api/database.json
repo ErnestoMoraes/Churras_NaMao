@@ -5,6 +5,12 @@
             "name": "Ernesto Moraes",
             "email": "ernestomoraes@gmail.com",
             "password": "123"
+        },
+        {
+            "id": 1,
+            "name": "Teste teste",
+            "email": "teste@teste.com.br",
+            "password": "123"
         }
     ],
     "products": [
@@ -18,8 +24,21 @@
                     "id": 0,
                     "user_id": 0,
                     "product_id": 0,
-                    "start_date": "2021-01-01",
-                    "end_date": "2021-01-02"
+                    "dateRent": "2021-04-18"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "title": "Churrasqueira 2 de tijolos",
+            "description": "Churrasqueira a gás",
+            "photo": "https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg",
+            "rents": [
+                {
+                    "id": 0,
+                    "user_id": 0,
+                    "product_id": 0,
+                    "dateRent": "2021-04-21"
                 }
             ]
         }
