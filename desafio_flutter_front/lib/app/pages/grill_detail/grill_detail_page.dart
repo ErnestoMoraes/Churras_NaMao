@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:reserva_churas/app/core/ui/helpers/size_extensions.dart';
-import 'package:reserva_churas/app/core/ui/styles/colors_app.dart';
 import 'package:reserva_churas/app/pages/grill_detail/widgets/calendar_page.dart';
 import 'package:reserva_churas/app/pages/grill_detail/widgets/details.dart';
 
@@ -27,7 +26,7 @@ class GrillDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            const CalendarPage(),
+            CalendarPage(),
             const Details(),
             const Divider(),
             Row(
