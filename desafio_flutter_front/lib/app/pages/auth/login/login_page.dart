@@ -169,10 +169,10 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                                         'Para acessar o aplicativo, utilize:'),
                                     SizedBox(
                                         height: context.screenHeight * .02),
-                                    const Text('Email: usuario123'),
+                                    const Text('Email: usuario_teste@gmail.com"'),
                                     SizedBox(
                                         height: context.screenHeight * .02),
-                                    const Text('Senha: usuario123'),
+                                    const Text('Senha: usuario_teste'),
                                     SizedBox(
                                         height: context.screenHeight * .15),
                                     const Align(
