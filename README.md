@@ -51,8 +51,17 @@
   Email: usuario_teste@gmail.com <br>
   Senha: usuario_teste <br>
 
-
-
+<div align="center">
+  <br/>
+  <br/>
+  <br/>
+    <div>
+      <h1>Open Source</h1>
+      <sub>Copyright © 2023 - <a href="https://github.com/ErnestoMoraes">ErnestoMoraes</sub></a>
+    </div>
+    <br/>
+    😁
+</div>
 
 
 
