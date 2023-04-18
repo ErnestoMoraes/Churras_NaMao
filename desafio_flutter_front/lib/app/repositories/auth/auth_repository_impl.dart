@@ -11,6 +11,7 @@ import './auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final CustomDio dio;
+  
   AuthRepositoryImpl({
     required this.dio,
   });

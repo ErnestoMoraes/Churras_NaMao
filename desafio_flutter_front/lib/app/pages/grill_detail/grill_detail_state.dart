@@ -18,12 +18,14 @@ class GrillDetailState extends Equatable {
   final GrillDetailStatus status;
   final List<RentModel> rents;
   final String? errorMessage;
+  int grillId;
   String selectedDay;
 
   GrillDetailState({
     required this.selectedDay,
     required this.status,
     required this.rents,
+    required this.grillId,
     this.errorMessage,
   });
 
@@ -31,21 +33,25 @@ class GrillDetailState extends Equatable {
       : status = GrillDetailStatus.initial,
         rents = const [],
         selectedDay = DateTime.now().toString(),
+        grillId = 0,
         errorMessage = null;
 
   @override
-  List<Object?> get props => [status, rents, selectedDay, errorMessage];
+  List<Object?> get props =>
+      [status, rents, selectedDay, errorMessage, grillId];
 
   GrillDetailState copyWith({
     GrillDetailStatus? status,
     List<RentModel>? rents,
     String? errorMessage,
+    int? grillId,
     String? selectedDay,
   }) {
     return GrillDetailState(
       status: status ?? this.status,
       rents: rents ?? this.rents,
       errorMessage: errorMessage ?? this.errorMessage,
+      grillId: grillId ?? this.grillId,
       selectedDay: selectedDay ?? this.selectedDay,
     );
   }

@@ -9,7 +9,7 @@ class HomeController extends Cubit<HomeState> {
 
   HomeController(this._grillsRepository)
       : super(
-          const HomeState.initial(),
+          HomeState.initial(),
         );
 
   Future<void> loadGrills() async {

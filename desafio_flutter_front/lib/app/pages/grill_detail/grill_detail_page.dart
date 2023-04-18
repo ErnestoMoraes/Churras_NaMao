@@ -10,7 +10,13 @@ import 'package:reserva_churas/app/pages/grill_detail/widgets/details.dart';
 
 class GrillDetailPage extends StatefulWidget {
   final GrillModel grillModel;
-  const GrillDetailPage({super.key, required this.grillModel});
+  final int indexModel;
+
+  const GrillDetailPage({
+    super.key,
+    required this.grillModel,
+    required this.indexModel,
+  });
 
   @override
   State<GrillDetailPage> createState() => _GrillDetailPageState();
@@ -74,37 +80,29 @@ class _GrillDetailPageState
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Container(
-                        width: context.percentWidth(.4),
-                        height: context.screenHeight * 0.06,
-                        padding: const EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          color: Colors.red[700],
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Cancelar',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17),
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
                       onTap: () async {
-                        await context.read<GrillDetailController>().addRents();
-                        // setState(
-                        //   () {},
-                        // );
+                        state.grillId = widget.indexModel;
+                        bool isOk = true;
+                        for (var rental in state.rents) {
+                          var databack = rental.dateRent.substring(0, 10);
+                          var datahoje =
+                              state.selectedDay.toString().substring(0, 10);
+
+                          if (databack == datahoje) {
+                            isOk = false;
+                            break;
+                          }
+                        }
+                        if (isOk) {
+                          await context
+                              .read<GrillDetailController>()
+                              .addRents();
+                        } else {
+                          showError('Data já reservada');
+                        }
                       },
                       child: Container(
-                        width: context.percentWidth(.4),
+                        width: context.percentWidth(.6),
                         height: context.screenHeight * 0.06,
                         padding: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(

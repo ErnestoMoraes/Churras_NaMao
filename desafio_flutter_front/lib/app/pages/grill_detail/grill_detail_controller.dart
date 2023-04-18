@@ -3,9 +3,11 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:reserva_churas/app/models/rent_model.dart';
 import 'package:reserva_churas/app/pages/grill_detail/grill_detail_state.dart';
+import 'package:reserva_churas/app/repositories/grills/grills_repository.dart';
 
 class GrillDetailController extends Cubit<GrillDetailState> {
-  GrillDetailController() : super(GrillDetailState.initial());
+  final GrillsRepository dio;
+  GrillDetailController(this.dio) : super(GrillDetailState.initial());
 
   Future<void> loadRents(List<RentModel> listRents) async {
     emit(state.copyWith(status: GrillDetailStatus.loading));
@@ -29,16 +31,21 @@ class GrillDetailController extends Cubit<GrillDetailState> {
     emit(state.copyWith(status: GrillDetailStatus.loading));
     try {
       final rent = RentModel(
-        id: 3,
-        userId: 1,
-        productId: 1,
+        id: 0,
+        userId: 0,
+        productId: state.grillId,
         dateRent: state.selectedDay,
       );
-      final listRents = [...state.rents];
+      final listRents = state.rents;
       listRents.add(rent);
+      await dio.updateRent(rent);
       await Future.delayed(const Duration(seconds: 2));
-      listRents.sort((a, b) => a.dateRent.compareTo(b.dateRent));
-      emit(state.copyWith(status: GrillDetailStatus.loaded, rents: listRents));
+      emit(
+        state.copyWith(
+          status: GrillDetailStatus.loaded,
+          rents: listRents,
+        ),
+      );
     } catch (e, s) {
       log('Erro ao buscar produtos', error: e, stackTrace: s);
       emit(

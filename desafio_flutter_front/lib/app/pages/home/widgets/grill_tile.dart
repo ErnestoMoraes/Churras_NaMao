@@ -11,10 +11,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class GrillTile extends StatefulWidget {
   final GrillModel grill;
+  final int index;
 
   const GrillTile({
     Key? key,
     required this.grill,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -38,6 +40,7 @@ class _GrillTileState extends State<GrillTile> {
     //Envio para detalhes
     await navigator.pushNamed('/grill_detail', arguments: {
       'grill': widget.grill,
+      'index': widget.index,
     });
   }
 
