@@ -7,7 +7,10 @@ import 'package:reserva_churas/app/repositories/grills/grills_repository.dart';
 class HomeController extends Cubit<HomeState> {
   final GrillsRepository _grillsRepository;
 
-  HomeController(this._grillsRepository) : super(const HomeState.initial());
+  HomeController(this._grillsRepository)
+      : super(
+          const HomeState.initial(),
+        );
 
   Future<void> loadGrills() async {
     emit(state.copyWith(status: HomeStatus.loading));

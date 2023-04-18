@@ -28,7 +28,7 @@ class MyButton extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            color: context.colorsApp.background,
+            color: context.colorsApp.white,
             fontWeight: FontWeight.bold,
             fontSize: 17,
           ),

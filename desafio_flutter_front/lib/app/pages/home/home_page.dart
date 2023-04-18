@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reserva_churas/app/core/ui/base_state/base_state.dart';
-import 'package:reserva_churas/app/core/ui/helpers/size_extensions.dart';
 import 'package:reserva_churas/app/core/ui/widgets/my_appbar.dart';
 import 'package:reserva_churas/app/pages/home/home_controller.dart';
 import 'package:reserva_churas/app/pages/home/home_state.dart';
+import 'package:reserva_churas/app/pages/home/widgets/bag_grills_widget.dart';
 import 'package:reserva_churas/app/pages/home/widgets/grill_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,20 +43,29 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
           loaded: () => true,
         ),
         builder: (context, state) {
-          return SizedBox(
-            height: context.screenHeight,
-            child: ListView.builder(
-              itemCount: state.grills.length,
-              itemBuilder: (context, index) {
-                final grill = state.grills[index];
-                return Column(
-                  children: [
-                    GrillTile(grill: grill),
-                    const Divider(),
-                  ],
-                );
-              },
-            ),
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: state.grills.length,
+                  itemBuilder: (context, index) {
+                    final grill = state.grills[index];
+                    return Column(
+                      children: [
+                        GrillTile(grill: grill),
+                        const Divider(),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              Visibility(
+                visible: state.grills.isNotEmpty,
+                child: BagGrillsWidget(
+                  grills: state.grills,
+                ),
+              ),
+            ],
           );
         },
       ),

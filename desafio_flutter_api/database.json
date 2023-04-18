@@ -11,6 +11,12 @@
             "name": "Teste teste",
             "email": "teste@teste.com.br",
             "password": "123"
+        },
+        {
+            "id": 2,
+            "name": "Teste",
+            "email": "usuario_teste@gmail.com",
+            "password": "usuario_teste"
         }
     ],
     "products": [
@@ -24,7 +30,19 @@
                     "id": 0,
                     "user_id": 0,
                     "product_id": 0,
-                    "dateRent": "2021-04-18"
+                    "dateRent": "2023-04-17 00:00:00.000Z"
+                },
+                {
+                    "id": 1,
+                    "user_id": 0,
+                    "product_id": 0,
+                    "dateRent": "2023-04-18 00:00:00.000Z"
+                },
+                {
+                    "id": 2,
+                    "user_id": 0,
+                    "product_id": 0,
+                    "dateRent": "2023-04-22 00:00:00.000Z"
                 }
             ]
         },
@@ -35,10 +53,10 @@
             "photo": "https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg",
             "rents": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "user_id": 0,
                     "product_id": 0,
-                    "dateRent": "2021-04-21"
+                    "dateRent": "2023-04-20 00:00:00.000Z"
                 }
             ]
         }

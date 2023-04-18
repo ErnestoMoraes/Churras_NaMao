@@ -9,7 +9,7 @@ class Details extends StatelessWidget {
   Widget build(BuildContext context) {
     Map<int, Map<String, dynamic>> dias = {
       0: {'color': context.colorsApp.white, 'text': 'Dia de Hoje'},
-      1: {'color': context.colorsApp.daynoselected, 'text': 'Dia com Reserva'},
+      1: {'color': Colors.red, 'text': 'Dia com Reserva'},
       2: {'color': context.colorsApp.primary, 'text': 'Dia Selecionado'},
     };
     return Column(
@@ -22,8 +22,8 @@ class Details extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                width: 30,
-                height: 30,
+                width: 25,
+                height: 25,
                 decoration: BoxDecoration(
                   color: dia['color'],
                   shape: BoxShape.circle,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:reserva_churas/app/pages/grill_detail/grill_detail_controller.dart';
 import 'package:reserva_churas/app/pages/grill_detail/grill_detail_page.dart';
 
 class GrillDetailRouter {
@@ -7,9 +8,15 @@ class GrillDetailRouter {
   static Widget get page => MultiProvider(
         providers: [
           Provider(
-            create: (context) => Object(),
+            create: (context) => GrillDetailController(),
           ),
         ],
-        child: const GrillDetailPage(),
+        builder: (context, child) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          return GrillDetailPage(
+            grillModel: args['grill'],
+          );
+        },
       );
 }

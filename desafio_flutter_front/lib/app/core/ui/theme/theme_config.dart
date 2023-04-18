@@ -43,5 +43,6 @@ class ThemeConfig {
       errorStyle:
           TextStyles.instance.textInputLabel.copyWith(color: Colors.redAccent),
     ),
+    
   );
 }

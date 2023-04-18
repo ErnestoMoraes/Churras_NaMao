@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, avoid_print, avoid_function_literals_in_foreach_calls
+
 import 'package:flutter/material.dart';
 import 'package:loading_gifs/loading_gifs.dart';
 import 'package:reserva_churas/app/core/ui/helpers/size_extensions.dart';
@@ -5,8 +7,9 @@ import 'package:reserva_churas/app/core/ui/styles/colors_app.dart';
 import 'package:reserva_churas/app/core/ui/styles/text_styles.dart';
 import 'package:reserva_churas/app/models/grill_model.dart';
 import 'package:reserva_churas/app/pages/home/widgets/available_grill.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class GrillTile extends StatelessWidget {
+class GrillTile extends StatefulWidget {
   final GrillModel grill;
 
   const GrillTile({
@@ -15,18 +18,56 @@ class GrillTile extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<GrillTile> createState() => _GrillTileState();
+}
+
+class _GrillTileState extends State<GrillTile> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> _goDetail(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    final sp = await SharedPreferences.getInstance();
+    if (!sp.containsKey('accessToken')) {
+      //Envio para login
+      final loginResult = await navigator.pushNamed('/auth/login');
+      print(loginResult);
+    }
+    //Envio para detalhes
+    await navigator.pushNamed('/grill_detail', arguments: {
+      'grill': widget.grill,
+    });
+  }
+
+  bool validate = false;
+  List<bool> list = [];
+  bool _isHoje() {
+    widget.grill.rents.forEach((rent) {
+      var dataRent = DateTime.parse(rent.dateRent).toString();
+      var databack = dataRent.substring(0, 10);
+      var datahoje = DateTime.now().toString().substring(0, 10);
+      if (databack == datahoje) {
+        list.add(true);
+      } else {
+        list.add(false);
+      }
+    });
+    if (list.contains(true)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ColoredBox(
       color: context.colorsApp.secondary,
       child: InkWell(
-        onTap: () async {
-          await Navigator.pushNamed(
-            context,
-            '/grill_detail',
-            arguments: {
-              'grill': grill,
-            },
-          );
+        onTap: () {
+          _goDetail(context);
         },
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: context.screenHeight * 0.01),
@@ -37,14 +78,14 @@ class GrillTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    if (grill.id % 2 == 0) const AvailableGrill(),
+                    _isHoje() ? const AvailableGrill() : Container(),
                     Padding(
                       padding: EdgeInsets.only(
                         bottom: context.screenHeight * 0.01,
                         left: context.screenHeight * 0.015,
                       ),
                       child: Text(
-                        grill.title,
+                        widget.grill.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: context.textStyles.h1.copyWith(
@@ -59,7 +100,7 @@ class GrillTile extends StatelessWidget {
                         left: context.screenHeight * 0.015,
                       ),
                       child: Text(
-                        grill.description,
+                        widget.grill.description,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: context.textStyles.h2.copyWith(
@@ -111,7 +152,7 @@ class GrillTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5.0),
                   child: FadeInImage.assetNetwork(
                     placeholder: cupertinoActivityIndicator,
-                    image: grill.photo,
+                    image: widget.grill.photo,
                     height: 120,
                     width: 120,
                     fit: BoxFit.cover,

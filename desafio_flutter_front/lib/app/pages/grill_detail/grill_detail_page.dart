@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reserva_churas/app/core/ui/base_state/base_state.dart';
 import 'package:reserva_churas/app/core/ui/helpers/size_extensions.dart';
+import 'package:reserva_churas/app/models/grill_model.dart';
+import 'package:reserva_churas/app/pages/grill_detail/grill_detail_controller.dart';
+import 'package:reserva_churas/app/pages/grill_detail/grill_detail_state.dart';
 import 'package:reserva_churas/app/pages/grill_detail/widgets/calendar_page.dart';
 import 'package:reserva_churas/app/pages/grill_detail/widgets/details.dart';
 
-class GrillDetailPage extends StatelessWidget {
-  const GrillDetailPage({Key? key}) : super(key: key);
+class GrillDetailPage extends StatefulWidget {
+  final GrillModel grillModel;
+  const GrillDetailPage({super.key, required this.grillModel});
+
+  @override
+  State<GrillDetailPage> createState() => _GrillDetailPageState();
+}
+
+class _GrillDetailPageState
+    extends BaseState<GrillDetailPage, GrillDetailController> {
+  late List<String> selectedDates;
+  @override
+  void onReady() {
+    super.onReady();
+    controller.loadRents(widget.grillModel.rents);
+    selectedDates = widget.grillModel.rents.map((e) => e.dateRent).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,77 +32,105 @@ class GrillDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detalhe de Produto'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: context.screenWidth,
-              height: context.screenHeight * 0.3,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(
-                      'https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg'),
-                  fit: BoxFit.scaleDown,
-                ),
-              ),
-            ),
-            CalendarPage(),
-            const Details(),
-            const Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: BlocConsumer<GrillDetailController, GrillDetailState>(
+        listener: (context, state) {
+          state.status.matchAny(
+            any: () => hideLoader(),
+            loading: () => showLoader(),
+            error: () {
+              hideLoader();
+              showError(
+                state.errorMessage ?? 'Erro não identificado',
+              );
+            },
+          );
+        },
+        buildWhen: (previous, current) => current.status.matchAny(
+          any: () => false,
+          initial: () => true,
+          loaded: () => true,
+        ),
+        builder: (context, state) {
+          return SingleChildScrollView(
+            child: Column(
               children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Container(
-                    width: context.percentWidth(.4),
-                    height: context.screenHeight * 0.06,
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      color: Colors.red[700],
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Cancelar',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
-                      ),
+                Container(
+                  width: context.screenWidth,
+                  height: context.screenHeight * 0.3,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg'),
+                      fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Container(
-                    width: context.percentWidth(.4),
-                    height: context.screenHeight * 0.06,
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      color: Colors.green[800],
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Salvar',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
+                CalendarPage(
+                  selectedDates: widget.grillModel.rents,
+                ),
+                const Details(),
+                const Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        width: context.percentWidth(.4),
+                        height: context.screenHeight * 0.06,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.red[700],
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Cancelar',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                )
+                    InkWell(
+                      onTap: () async {
+                        await context.read<GrillDetailController>().addRents();
+                        // setState(
+                        //   () {},
+                        // );
+                      },
+                      child: Container(
+                        width: context.percentWidth(.4),
+                        height: context.screenHeight * 0.06,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.green[800],
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Salvar',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: context.percentHeight(.03),
+                ),
               ],
             ),
-            SizedBox(height: context.percentHeight(.03)),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
