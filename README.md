@@ -48,7 +48,7 @@
   - [x] Usando Provider
   - [x] Usando BloC
   - [ ] Tela (Minhas reservas) não continuada!
-  - [ ] 
+  - [ ] Testes
   
   ## As Churrasquerias e Usuários estão sendo salvas com o seguinte formato de informações:
   ### Usuário: 
