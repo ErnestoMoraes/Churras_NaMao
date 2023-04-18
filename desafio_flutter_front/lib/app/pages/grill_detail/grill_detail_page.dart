@@ -111,7 +111,7 @@ class _GrillDetailPageState
                         ),
                         child: const Center(
                           child: Text(
-                            'Salvar',
+                            'Reservar',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

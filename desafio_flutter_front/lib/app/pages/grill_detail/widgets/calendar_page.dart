@@ -228,7 +228,7 @@ class _CalendarPageState extends State<CalendarPage> {
                   'Dia selecionado: ${DateFormat('dd/MM/yyyy').format(today)}',
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 13,
+                    fontSize: 15,
                   ),
                 ),
               )
