@@ -45,6 +45,54 @@
   - [x] Exibir tela de Detalhe de produto: Exibindo (Foto, Calendário, Legenda de cores e opção de Reservar Churrasqueira).
   - [ ] Poder des-reservar Churrasqueira.
   - [x] O usuário pode ver as Churrasqueiras cadastradas, mas precisa fazer login para reservar.
+  
+  ## As Churrasquerias e suas reservar estão sendo salvas com as seguintes informações:
+  ### Usuário: 
+  ```
+        {
+            "id": 0,
+            "name": "Teste",
+            "email": "usuario_teste@gmail.com",
+            "password": "usuario_teste"
+        }
+    ],
+  ```
+  ### Churrasqueira:
+  ```
+  {
+            "id": 0,
+            "title": "Churrasqueira",
+            "description": "Churrasqueira a gás",
+            "photo": "https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg",
+            "rents": [
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-17 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-18 16:33:07.235190"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-27 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-30 00:00:00.000Z"
+                }
+            ]
+        },
+  ```
+  
 
 ## Para logar:
   Não será possivel cadastrar um noco usuário! <br>
