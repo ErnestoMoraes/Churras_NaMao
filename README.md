@@ -12,12 +12,13 @@
  
  ## Como executar o aplicativo?
  ### Etapa 1: Executar a API
- A API foi construida em Dart. Foi utilizado o package Json_Rest_Server que transforma um arquivo JSON em uma API que atende a requisições HTTP. Deixando o arquivo "funcional" e interativo.
- Para isso: <br>
- Package: json_rest_server: ^1.5.4 => Versão usada! <br>
+ A API foi construida em Dart. Foi utilizado o package Json_Rest_Server que transforma um arquivo JSON em uma API que atende a requisições HTTP. Deixando o arquivo "funcional" e interativo. <br>
+ 
+ Para isso siga os seguintes passos: <br>
+ > Package: json_rest_server: ^1.5.4 => Versão usada! <br>
   1. Baixe o arquivo: desafio_api
-  2. Ative o Json Rest Server pelo pub: dart pub global activate json_rest_server
-  3. Execute: json_rest_server run ou jrs run
+  2. Ative o Json Rest Server pelo pub: ```dart pub global activate json_rest_server```
+  3. Execute: ```json_rest_server run ou jrs run```
   5. Se aparecer: <br>
         Json Rest Server Server started, responding on: <br>
         http://localhost:8080/ <br>
@@ -28,10 +29,10 @@
   
  ### Etapa 2: Executar o Aplicativo
   1. Baixe o arquivo: desafio_front
-  2. Insira na raiz do arquivo uma pasta nomeada de .env: <br>
-      No arquivo .env, insira:  <br>
-        backend_base_url=http://(ip_máquina):8080  ->  Altere pelo seu Endereço IPv4. <br>
-  3. Rode o projeto front com o comando: Flutter run.
+  2. Insira na raiz do arquivo uma pasta nomeada de ``` .env```: <br>
+      No arquivo ``` .env```, insira:  <br>
+       ``` backend_base_url=http://(ip_máquina):8080```  ->  Altere pelo seu Endereço IPv4. <br>
+  3. Rode o projeto front com o comando: ``` Flutter run```.
  
  ## Mais informações
  Ação feitas e não feitas:
