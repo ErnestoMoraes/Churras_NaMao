@@ -45,8 +45,12 @@
   - [x] Exibir tela de Detalhe de produto: Exibindo (Foto, Calendário, Legenda de cores e opção de Reservar Churrasqueira).
   - [ ] Poder des-reservar Churrasqueira.
   - [x] O usuário pode ver as Churrasqueiras cadastradas, mas precisa fazer login para reservar.
+  - [x] Usando Provider
+  - [x] Usando BloC
+  - [ ] Tela (Minhas reservas) não continuada!
+  - [ ] 
   
-  ## As Churrasquerias e suas reservar estão sendo salvas com as seguintes informações:
+  ## As Churrasquerias e Usuários estão sendo salvas com o seguinte formato de informações:
   ### Usuário: 
   ```
         {
@@ -94,7 +98,7 @@
   ```
   
 
-## Para logar:
+## ⚙️ Para logar:
   Não será possivel cadastrar um noco usuário! <br>
   Portanto, utilize esses dados para acessar: <br>
   Email: usuario_teste@gmail.com <br>
