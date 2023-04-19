@@ -95,7 +95,7 @@ class _GrillTileState extends State<GrillTile> {
                         style: context.textStyles.h1.copyWith(
                           color: context.colorsApp.white,
                           fontWeight: FontWeight.w700,
-                          fontSize: 18,
+                          fontSize: 16,
                         ),
                       ),
                     ),
