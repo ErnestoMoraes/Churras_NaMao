@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
                   SizedBox(height: context.percentHeight(.1)),
                   MyButton(
                     width: context.percentWidth(.6),
-                    color: context.colorsApp.blue,
+                    color: context.colorsApp.primary,
                     label: 'Entrar',
                     onPressed: () {
                       Future.delayed(const Duration(seconds: 2));

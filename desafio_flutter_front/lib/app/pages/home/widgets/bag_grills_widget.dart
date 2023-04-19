@@ -28,7 +28,7 @@ class _BagGrillsWidgetState extends State<BagGrillsWidget> {
       height: context.screenHeight * .10,
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-        color: Colors.grey[300],
+        color: Colors.white,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(15),
           topRight: Radius.circular(15),
