@@ -90,10 +90,12 @@ class _GrillTileState extends State<GrillTile> {
                       child: Text(
                         widget.grill.title,
                         maxLines: 2,
+                        
                         overflow: TextOverflow.ellipsis,
                         style: context.textStyles.h1.copyWith(
                           color: context.colorsApp.white,
                           fontWeight: FontWeight.w700,
+                          fontSize: 18,
                         ),
                       ),
                     ),
@@ -105,6 +107,7 @@ class _GrillTileState extends State<GrillTile> {
                       child: Text(
                         widget.grill.description,
                         maxLines: 3,
+                        
                         overflow: TextOverflow.ellipsis,
                         style: context.textStyles.h2.copyWith(
                           color: context.colorsApp.white,
@@ -150,6 +153,7 @@ class _GrillTileState extends State<GrillTile> {
                 padding: EdgeInsets.only(
                   bottom: context.screenHeight * 0.01,
                   right: context.screenHeight * 0.015,
+                  left: context.screenHeight * 0.01,
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5.0),

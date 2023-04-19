@@ -1,1 +1,140 @@
-{"users":[{"id":0,"name":"Ernesto Moraes","email":"ernestomoraes@gmail.com","password":"123"},{"id":1,"name":"Teste teste","email":"teste@teste.com.br","password":"123"},{"id":2,"name":"Teste","email":"usuario_teste@gmail.com","password":"usuario_teste"}],"products":[{"id":0,"title":"Churrasqueira","description":"Churrasqueira a gás","photo":"https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg","rents":[{"id":0,"userId":0,"productId":0,"dateRent":"2023-04-17 00:00:00.000Z"},{"id":0,"userId":0,"productId":0,"dateRent":"2023-04-18 16:33:07.235190"},{"id":0,"userId":0,"productId":0,"dateRent":"2023-04-27 00:00:00.000Z"},{"id":0,"userId":0,"productId":0,"dateRent":"2023-04-30 00:00:00.000Z"}]},{"id":1,"title":"Churrasqueira 2 de tijolos","description":"Churrasqueira a gás","photo":"https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg","rents":[{"id":0,"userId":0,"productId":1,"dateRent":"2023-04-19 00:00:00.000Z"},{"id":0,"userId":0,"productId":1,"dateRent":"2023-04-27 00:00:00.000Z"}]}]}
+{
+    "users": [
+        {
+            "id": 0,
+            "name": "Ernesto Moraes",
+            "email": "ernestomoraes@gmail.com",
+            "password": "123"
+        },
+        {
+            "id": 1,
+            "name": "Teste teste",
+            "email": "teste@teste.com.br",
+            "password": "123"
+        },
+        {
+            "id": 2,
+            "name": "Teste",
+            "email": "usuario_teste@gmail.com",
+            "password": "usuario_teste"
+        }
+    ],
+    "products": [
+        {
+            "id": 0,
+            "title": "Churrasqueira Giratória Mont para Costelão -30 Kg",
+            "description": "Sistema de fixação da carne; Sistema giratório através de engrenagens de aço carbono; Possui sistema de regulagem de velocidade de rotação da grelha;",
+            "photo": "https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg",
+            "rents": [
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-17 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-18 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-27 00:00:00.000Z"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "title": "Churrasqueira Parrilla Mont Argentina Portátil",
+            "description": "Tipo de grelha: argentina formato calha com coletor de gordura",
+            "photo": "https://montcalefatores.com.br/wp-content/uploads/2022/08/foto-1-sem-selo-frete-6.jpg",
+            "rents": [
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 1,
+                    "dateRent": "2023-04-19 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 1,
+                    "dateRent": "2023-04-27 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 1,
+                    "dateRent": "2023-04-30 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 1,
+                    "dateRent": "2023-05-02 00:00:00.000Z"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Churrasqueira Giratória Mont para Costelão - 20 Kg",
+            "description": "Produzida toda em chapa de aço carbono; Revestimento com tinta preta alta temperatura; Sistema giratório através de engrenagens de aço carbono;",
+            "photo": "https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-5.jpg",
+            "rents": [
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-17 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-18 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-27 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 2,
+                    "dateRent": "2023-04-29 00:00:00.000Z"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Churrasqueira Parrilla desmontável inspirada no Chef Francis Mallmann",
+            "description": "Esta Parrilla é fabricada em aço com pés removíveis. Acompanha grelha tradicional, disco com borda e varal para defumação. Apresenta porta para facilitar o manuseio das braças. Recebe uma pintura com tinta alta temperatura.Esta Parrilla é fabricada em aço com pés removíveis. Acompanha grelha tradicional, disco com borda e varal para defumação. Apresenta porta para facilitar o manuseio das braças. Recebe uma pintura com tinta alta temperatura.",
+            "photo": "https://montcalefatores.com.br/wp-content/uploads/2022/07/foto-1-calefator-4-1-1.jpg",
+            "rents": [
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-10 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-15 00:00:00.000Z"
+                },
+                {
+                    "id": 0,
+                    "userId": 0,
+                    "productId": 0,
+                    "dateRent": "2023-04-27 00:00:00.000Z"
+                }
+            ]
+        }
+    ]
+}

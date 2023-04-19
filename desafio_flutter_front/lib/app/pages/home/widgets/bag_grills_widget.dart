@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:reserva_churas/app/core/ui/helpers/size_extensions.dart';
-import 'package:reserva_churas/app/core/ui/styles/colors_app.dart';
 import 'package:reserva_churas/app/models/grill_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class BagGrillsWidget extends StatelessWidget {
+class BagGrillsWidget extends StatefulWidget {
   final List<GrillModel> grills;
   const BagGrillsWidget({super.key, required this.grills});
+
+  @override
+  State<BagGrillsWidget> createState() => _BagGrillsWidgetState();
+}
+
+class _BagGrillsWidgetState extends State<BagGrillsWidget> {
+  Future<void> _goDetail(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    final sp = await SharedPreferences.getInstance();
+    if (!sp.containsKey('accessToken')) {
+      await navigator.pushNamed('/auth/login');
+    }
+    await navigator.pushNamed('/auth/reservations');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: context.screenWidth,
-      height: 90,
+      height: context.screenHeight * .10,
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-        color: context.colorsApp.secondary,
+        color: Colors.grey[300],
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(15),
           topRight: Radius.circular(15),
@@ -29,7 +43,7 @@ class BagGrillsWidget extends StatelessWidget {
         ],
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () => _goDetail(context),
         child: Stack(
           children: const [
             Align(

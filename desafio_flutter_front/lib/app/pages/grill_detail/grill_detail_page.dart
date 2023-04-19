@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reserva_churas/app/core/ui/base_state/base_state.dart';
 import 'package:reserva_churas/app/core/ui/helpers/size_extensions.dart';
+import 'package:reserva_churas/app/core/ui/styles/colors_app.dart';
 import 'package:reserva_churas/app/models/grill_model.dart';
 import 'package:reserva_churas/app/pages/grill_detail/grill_detail_controller.dart';
 import 'package:reserva_churas/app/pages/grill_detail/grill_detail_state.dart';
@@ -35,9 +36,7 @@ class _GrillDetailPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detalhe de Produto'),
-      ),
+      appBar: AppBar(),
       body: BlocConsumer<GrillDetailController, GrillDetailState>(
         listener: (context, state) {
           state.status.matchAny(
@@ -60,13 +59,43 @@ class _GrillDetailPageState
           return SingleChildScrollView(
             child: Column(
               children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: context.screenWidth * 0.05,
+                  ),
+                  child: Text(
+                    widget.grillModel.title,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      color: context.colorsApp.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(height: context.screenHeight * 0.01),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: context.screenWidth * 0.05,
+                  ),
+                  child: Text(
+                    widget.grillModel.description,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      color: context.colorsApp.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+                SizedBox(height: context.screenHeight * 0.01),
                 Container(
                   width: context.screenWidth,
                   height: context.screenHeight * 0.3,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(
-                          'https://montcalefatores.com.br/wp-content/uploads/2022/03/foto-1-calefator-3-1.jpg'),
+                        widget.grillModel.photo,
+                      ),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
