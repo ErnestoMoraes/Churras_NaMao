@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reserva_churas/app/core/ui/helpers/loader.dart';
+import 'package:reserva_churas/app/core/ui/helpers/messages.dart';
 import 'package:reserva_churas/app/core/ui/helpers/size_extensions.dart';
 import 'package:reserva_churas/app/core/ui/styles/colors_app.dart';
 import 'package:reserva_churas/app/core/ui/widgets/my_button.dart';
@@ -10,7 +12,7 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends State<SplashPage> with Messages, Loader {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +30,12 @@ class _SplashPageState extends State<SplashPage> {
                     width: context.percentWidth(.6),
                     color: context.colorsApp.primary,
                     label: 'Entrar',
-                    onPressed: () {
-                      Future.delayed(const Duration(seconds: 2));
-                      Navigator.popAndPushNamed(context, '/home');
+                    onPressed: () async {
+                      var navigator = Navigator.of(context);
+                      showLoader();
+                      await Future.delayed(const Duration(milliseconds: 500));
+                      hideLoader();
+                      navigator.popAndPushNamed('/home');
                     },
                   )
                 ],

@@ -157,11 +157,12 @@ class _GrillTileState extends State<GrillTile> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5.0),
                   child: FadeInImage.assetNetwork(
-                    placeholder: cupertinoActivityIndicator,
+                    placeholder: cupertinoActivityIndicatorSmall,
                     image: widget.grill.photo,
                     height: 120,
                     width: 120,
                     fit: BoxFit.cover,
+                    placeholderFit: BoxFit.contain,
                   ),
                 ),
               ),
