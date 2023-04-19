@@ -25,8 +25,8 @@ class _BagGrillsWidgetState extends State<BagGrillsWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: context.screenWidth,
-      height: context.screenHeight * .10,
-      padding: const EdgeInsets.all(20.0),
+      height: context.screenHeight * .1,
+      padding: const EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.only(
@@ -45,23 +45,33 @@ class _BagGrillsWidgetState extends State<BagGrillsWidget> {
       child: ElevatedButton(
         onPressed: () => _goDetail(context),
         child: Stack(
-          children: const [
+          children: [
             Align(
               alignment: Alignment.centerLeft,
               child: Icon(
-                Icons.shopping_cart_outlined,
-                size: 30,
+                Icons.calendar_month_outlined,
+                size: context.screenWidth * .07,
+              ),
+            ),
+            SizedBox(
+              height: context.screenHeight * .10,
+              child: const Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Minhas Reservas',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
             Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Minhas Reservas',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                ),
+              alignment: Alignment.centerRight,
+              child: Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: context.screenWidth * .06,
               ),
             ),
           ],

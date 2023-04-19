@@ -49,7 +49,6 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                 child: ListView.builder(
                   itemCount: state.grills.length,
                   itemBuilder: (context, index) {
-                    print('index: $index');
                     final grill = state.grills[index];
                     return Column(
                       children: [

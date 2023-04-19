@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable, avoid_print, avoid_function_literals_in_foreach_calls
+// ignore_for_file: unused_local_variable, avoid_function_literals_in_foreach_calls
 
 import 'package:flutter/material.dart';
 import 'package:loading_gifs/loading_gifs.dart';
@@ -35,7 +35,6 @@ class _GrillTileState extends State<GrillTile> {
     if (!sp.containsKey('accessToken')) {
       //Envio para login
       final loginResult = await navigator.pushNamed('/auth/login');
-      print(loginResult);
     }
     //Envio para detalhes
     await navigator.pushNamed('/grill_detail', arguments: {
@@ -90,7 +89,6 @@ class _GrillTileState extends State<GrillTile> {
                       child: Text(
                         widget.grill.title,
                         maxLines: 2,
-                        
                         overflow: TextOverflow.ellipsis,
                         style: context.textStyles.h1.copyWith(
                           color: context.colorsApp.white,
@@ -107,7 +105,6 @@ class _GrillTileState extends State<GrillTile> {
                       child: Text(
                         widget.grill.description,
                         maxLines: 3,
-                        
                         overflow: TextOverflow.ellipsis,
                         style: context.textStyles.h2.copyWith(
                           color: context.colorsApp.white,
@@ -129,12 +126,14 @@ class _GrillTileState extends State<GrillTile> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'Programar reserva',
+                              'Agendar reserva',
+                              textAlign: TextAlign.center,
                               style: context.textStyles.h3.copyWith(
                                 color: context.colorsApp.white,
-                                fontSize: context.screenWidth * 0.04,
+                                fontSize: context.screenWidth * 0.035,
                               ),
                             ),
                             Icon(

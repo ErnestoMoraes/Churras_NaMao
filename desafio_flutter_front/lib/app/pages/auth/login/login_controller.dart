@@ -16,7 +16,6 @@ class LoginController extends Cubit<LoginState> {
       await Future.delayed(const Duration(seconds: 2));
       final authModel = await _authRepository.login(email, password);
       final sp = await SharedPreferences.getInstance();
-      print(authModel);
       sp.setString('accessToken', authModel.accessToken);
       sp.setString('refreshToken', authModel.accessToken);
       emit(state.copyWith(status: LoginStatus.success));

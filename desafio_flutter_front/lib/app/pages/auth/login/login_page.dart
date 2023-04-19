@@ -128,7 +128,10 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                             final valid =
                                 formKey.currentState?.validate() ?? false;
                             if (valid) {
-                              controller.login(emailEC.text, passwordEC.text);
+                              controller.login(
+                                emailEC.text.trim(),
+                                passwordEC.text.trim(),
+                              );
                             }
                           },
                         ),
@@ -156,6 +159,8 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                               content: SizedBox(
                                 height: context.percentHeight(.5),
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
                                         'Este aplicativo foi desenvolvido para apresentação de um teste de seleção para Dev Flutter Jr, portanto, não é um aplicativo real.'),
@@ -169,18 +174,11 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                                         'Para acessar o aplicativo, utilize:'),
                                     SizedBox(
                                         height: context.screenHeight * .02),
-                                    const Text('Email: usuario_teste@gmail.com"'),
+                                    const Text(
+                                        'Email: \nusuario_teste@gmail.com'),
                                     SizedBox(
                                         height: context.screenHeight * .02),
-                                    const Text('Senha: usuario_teste'),
-                                    SizedBox(
-                                        height: context.screenHeight * .15),
-                                    const Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Text(
-                                        'Obrigado pela compreensão! :)',
-                                      ),
-                                    ),
+                                    const Text('Senha: \nusuario_teste'),
                                   ],
                                 ),
                               ),

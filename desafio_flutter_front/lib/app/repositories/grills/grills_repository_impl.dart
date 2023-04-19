@@ -37,8 +37,6 @@ class GrillsRepositoryImpl implements GrillsRepository {
           .map<GrillModel>((grill) => GrillModel.fromMap(grill))
           .toList();
       final grill = body.firstWhere((grill) => grill.id == rent.productId);
-      int number = rent.productId;
-      print('number: $number');
       grill.rents.add(rent);
       await dio.unauth().put('/products/${grill.id}', data: grill.toMap());
       return body;

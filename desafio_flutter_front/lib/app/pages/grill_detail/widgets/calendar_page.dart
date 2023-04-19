@@ -185,6 +185,7 @@ class _CalendarPageState extends State<CalendarPage> {
       builder: (context, state) {
         var datas = state.rents.map((e) => DateTime.parse(e.dateRent)).toList();
         dates = datas;
+        // ignore: avoid_print
         print('datas ==> $datas');
         return Container(
           margin: const EdgeInsets.all(20),
