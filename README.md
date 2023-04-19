@@ -1,5 +1,5 @@
 # Desafio-Flutter - Ernesto Moraes
-<img src="https://github.com/ErnestoMoraes/Desafio-Flutter/blob/main/desafio_flutter_front/assets/images_readme/app.png" alt="Alt Text" height=500>
+<img src="https://github.com/ErnestoMoraes/Desafio-Flutter/blob/main/desafio_flutter_front/assets/images_readme/todo_app.png" alt="Alt Text" height=500>
 
 ## Teste
  > Como parte do processo de seleção, gostaríamos de lhe apresentar um desafio para avaliar suas habilidades e conhecimentos em Flutter. <br> 
