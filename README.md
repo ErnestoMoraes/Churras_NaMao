@@ -53,13 +53,13 @@
   ## As Churrasquerias e Usuários estão sendo salvas com o seguinte formato de informações:
   ### Usuário: 
   ```
-        {
-            "id": 0,
-            "name": "Teste",
-            "email": "usuario_teste@gmail.com",
-            "password": "usuario_teste"
-        }
-    ],
+{
+    "id": 0,
+    "name": "Teste",
+    "email": "usuario_teste@gmail.com",
+    "password": "usuario_teste"
+}
+  
   ```
   ### Churrasqueira:
   ```
